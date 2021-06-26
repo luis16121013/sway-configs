@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # 
 # ██╗     ██╗   ██╗██╗███████╗██████╗ ███████╗    ██████╗ ███████╗██╗   ██╗
 # ██║     ██║   ██║██║██╔════╝██╔══██╗██╔════╝    ██╔══██╗██╔════╝██║   ██║
@@ -8,31 +8,13 @@
 # ╚══════╝ ╚═════╝ ╚═╝╚══════╝╚═╝     ╚═╝         ╚═════╝ ╚══════╝  ╚═══╝  
 # Email: luispfcanales@gmail.com
 # Twitter: @luispfcanales
+A=$(wofi --show dmenu --width=100 --height=110 --prompt=System cat <<EOF
+ Reboot
+ Shutdown
+EOF
+)
 
-#swaywm 
-sudo pacman -S sway --noconfirm
-sudo pacman -S waybar --noconfirm
-#screenshot 
-sudo pacman -S grim --noconfirm
-sudo pacman -S slurp --noconfirm
-#brightness 
-sudo pacman -S light --noconfirm
-#launcher
-sudo pacman -S wofi --noconfirm
-#screen shared 
-sudo pacman -S wayvnc --noconfirm
-sudo pacman -S tigervnc --noconfirm
-#icons
-sudo pacman -S ttf-font-awesome --noconfirm
-#dependencies NVIM
-sudo pacman -S xdg-utils --noconfirm #live file.md
-
-#for images captures
-mkdir captures-images
-
-if [[ -d $HOME/.config ]]; then
-	./links.sh
-else
-	mkdir $HOME/.config
-	./links.sh
-fi
+case $A in
+  *Reboot) reboot ;;
+  *Shutdown) shutdown now;;
+esac

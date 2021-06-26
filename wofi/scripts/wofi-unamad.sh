@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # 
 # ██╗     ██╗   ██╗██╗███████╗██████╗ ███████╗    ██████╗ ███████╗██╗   ██╗
 # ██║     ██║   ██║██║██╔════╝██╔══██╗██╔════╝    ██╔══██╗██╔════╝██║   ██║
@@ -9,30 +9,15 @@
 # Email: luispfcanales@gmail.com
 # Twitter: @luispfcanales
 
-#swaywm 
-sudo pacman -S sway --noconfirm
-sudo pacman -S waybar --noconfirm
-#screenshot 
-sudo pacman -S grim --noconfirm
-sudo pacman -S slurp --noconfirm
-#brightness 
-sudo pacman -S light --noconfirm
-#launcher
-sudo pacman -S wofi --noconfirm
-#screen shared 
-sudo pacman -S wayvnc --noconfirm
-sudo pacman -S tigervnc --noconfirm
-#icons
-sudo pacman -S ttf-font-awesome --noconfirm
-#dependencies NVIM
-sudo pacman -S xdg-utils --noconfirm #live file.md
+A=$(wofi --show dmenu --width=100 --height=110 --prompt=System cat <<EOF
+ Aulavirtual
+ Matricula
+ Intranet
+EOF
+)
 
-#for images captures
-mkdir captures-images
-
-if [[ -d $HOME/.config ]]; then
-	./links.sh
-else
-	mkdir $HOME/.config
-	./links.sh
-fi
+case $A in
+  *Aulavirtual) google-chrome-stable https://aulavirtual.unamad.edu.pe/ ;;
+  *Matricula) google-chrome-stable https://matricula.unamad.edu.pe/;;
+  *Intranet) google-chrome-stable https://intranet.unamad.edu.pe/;;
+esac

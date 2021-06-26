@@ -6,6 +6,7 @@
 - **Terminal** ```Alacritty```
 - **Browsers** ```Firefox``` ```google-chrome```
 - **File manager** ```pcmanfm```
+- **GUI** ```xorg``` to open ```google-chrome```
 
 #### The script will install the following packages:
 - **Icons** ```ttf-font-awesome```

@@ -26,7 +26,7 @@
     "custom/unamad": {
         "format": "Unamad ",
         "return-type": "json",
-        "on-click":"google-chrome-stable https://aulavirtual.unamad.edu.pe/"
+        "on-click":"~/.config/wofi/scripts/wofi-unamad.sh"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -87,7 +87,7 @@
     "custom/shutdown": {
         "format": "",
         "return-type": "json",
-        "on-click":"shutdown now"
+        "on-click":"~/.config/wofi/scripts/wofi-exit.sh"
     },
     "custom/media": {
         "format": "{icon} {}",
